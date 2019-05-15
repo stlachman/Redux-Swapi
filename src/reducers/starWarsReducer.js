@@ -3,7 +3,6 @@ const initialState = {
   characters: [],
   isLoading: false,
   error: ""
-  // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -19,6 +18,12 @@ export const charsReducer = (state = initialState, action) => {
         isLoading: false,
         error: "",
         characters: action.payload
+      }
+    case FAILURE: 
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload
       }
     
     default:

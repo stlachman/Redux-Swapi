@@ -1,5 +1,6 @@
 import React from "react";
-
+import { connect } from 'react-redux';
+import { getCharacters } from '../actions';
 import Character from "./Character";
 
 class CharacterList extends React.Component {
@@ -8,7 +9,7 @@ class CharacterList extends React.Component {
   }
 
   componentDidMount() {
-    console.log('mounted');
+    
   }
 
   render() {
@@ -23,4 +24,12 @@ class CharacterList extends React.Component {
   
 };
 
-export default CharacterList;
+const mapStateToProps = (state) => {
+  return {
+    character: state.charsReducer.characters,
+    isLoading: state.charsReducer.isLoading,
+    error: state.charsReducer.error
+  }
+}
+
+export default connect(mapStateToProps, { getCharacters })(CharacterList);

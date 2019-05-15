@@ -8,7 +8,7 @@ export const FAILURE = 'FAILURE';
 
 // Action Creator 
 
-const getCharacters = () => dispatch => {
+export const getCharacters = () => dispatch => {
   dispatch({ type: FETCHING })
 }
 
